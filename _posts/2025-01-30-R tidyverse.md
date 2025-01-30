@@ -1,6 +1,6 @@
 ---
 title: tidyverse, SQL
-date: 2025-01-28 05:28:00 +09:00
+date: 2025-01-30 05:28:00 +09:00
 categories: [R, 데이터]
 tags: [R, R Studion, 통계, tidyverse, SQL, 데이터 전처리]
 ---
