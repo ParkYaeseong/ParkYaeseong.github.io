@@ -205,6 +205,11 @@ compress_html:
   ignore:
     envs: [development]
 
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+
+
 exclude:
   - "*.gem"
   - "*.gemspec"
