@@ -5,10 +5,6 @@ categories: [Python]
 tags: [Python, Scikit-learn]
 ---
 
-# 머신러닝 알고리즘 분류와 Scikit-learn 활용 가이드
-
-![ML vs DL](https://miro.medium.com/max/1400/1*_k8MlDmPF9MKC34HiojYrw.png)
-
 ## Ⅰ. 머신러닝 알고리즘 4대 패러다임
 
 ### 1. 정보 기반 모델 (Tree-based)
