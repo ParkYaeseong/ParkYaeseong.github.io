@@ -1,0 +1,120 @@
+---
+title: 췌장암 예측 웹 애플리케이션 (CDSS)
+date: 2025-02-20 10:27:00 +09:00
+categories: [CDSS]
+tags: [CDSS, 췌장암 에측측]
+---
+# 췌장암 예측 웹 애플리케이션 (CDSS)
+
+## 소개
+
+본 웹 애플리케이션은 췌장암 예측을 위한 보조적인 도구로, 의료진의 진단을 돕기 위해 개발되었습니다. 다양한 형태의 검사 데이터를 입력받아 앙상블 모델을 통해 예측 결과를 제공하며, 시각화 자료와 AI 기반의 해석을 함께 제공하여 사용자의 이해를 돕습니다.
+
+## 주요 기능
+
+* **다양한 데이터 입력:** 유전자 데이터(CSV), 단백질 데이터(CSV), 메틸화 데이터(CSV), CNV 데이터(CSV)를 입력하여 예측을 수행할 수 있습니다[cite: 1].
+* **앙상블 모델 예측:** 입력된 데이터를 바탕으로 앙상블 모델이 췌장암 예측 확률과 결과를 제공합니다.
+* **예측 결과 시각화:** 입력 데이터의 분포를 시각화하여 제공하고, 앙상블 예측 결과를 게이지 차트와 레이더 차트로 시각적으로 표현합니다.
+* **AI 기반 해석:** Gemini API를 활용하여 예측 결과에 대한 이해를 돕는 해석을 제공합니다.
+* **예측 기록 관리:** 사용자의 예측 기록을 저장하고 조회, 삭제 기능을 제공하여 편리하게 관리할 수 있습니다.
+* **사용자 인증:** 회원가입 및 로그인 기능을 통해 사용자를 관리하고 예측 기록을 안전하게 보관합니다.
+* **PDF 다운로드:** 예측 결과를 PDF 파일로 다운로드하여 보관하거나 공유할 수 있습니다.
+
+## 기술 스택
+
+* **프레임워크:** Django
+* **라이브러리:** pandas, numpy, scikit-learn, joblib, matplotlib, seaborn, imbalanced-learn, statsmodels [cite: 1]
+* **AI 모델:** 앙상블 모델 (Random Forest, MLPClassifier, SVM, k-NN)
+* **AI 해석:** Gemini API
+* **시각화:** matplotlib, seaborn
+* **PDF 생성:** weasyprint
+
+## 설치 및 실행 방법
+
+1.  **필요 패키지 설치:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+2.  **데이터베이스 설정 및 마이그레이션:**
+
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+
+3.  **서버 실행:**
+
+    ```bash
+    python manage.py runserver
+    ```
+
+## 파일 구조 설명
+
+* `cdss/`: Django 프로젝트 루트 디렉토리
+    * `manage.py`: Django 프로젝트 관리 스크립트
+    * `cancer_predictor/`: 프로젝트 설정 관련 파일
+        * `settings.py`: Django 프로젝트 설정 파일
+        * `urls.py`: 프로젝트 URL 라우팅 설정 파일
+        * `wsgi.py`: WSGI 설정 파일
+    * `prediction_app/`: 췌장암 예측 관련 앱
+        * `admin.py`: Django 관리자 페이지 설정 파일
+        * `apps.py`: 앱 설정 파일
+        * `forms.py`: 폼 정의 파일 (데이터 입력, 회원가입)
+        * `models.py`: 데이터베이스 모델 정의 파일
+        * `views.py`: 뷰 함수 정의 파일 (로직 처리, 페이지 렌더링)
+        * `urls.py`: 앱 URL 라우팅 설정 파일
+        * `utils.py`: 예측 모델 로드, 예측 실행, 시각화 등 유틸리티 함수 정의 파일
+        * `templates/`: 템플릿 파일
+            * `prediction_app/`: 앱 템플릿
+                * `base.html`: 기본 HTML 템플릿
+                * `history.html`: 예측 기록 페이지 템플릿
+                * `home.html`: 홈페이지 템플릿
+                * `login.html`: 로그인 페이지 템플릿
+                * `predict.html`: 예측 페이지 템플릿
+                * `register.html`: 회원가입 페이지 템플릿
+                * `result.html`: 예측 결과 페이지 템플릿
+                * `view_result.html`: PDF 생성용 템플릿
+        * `static/`: 정적 파일 (CSS, JavaScript, 이미지)
+            * `css/`: CSS 파일
+                * `theme.css`: 기본 스타일
+                * `maicons.css`: 아이콘 관련 스타일
+                * `bootstrap.css`: 부트스트랩 스타일
+            * `js/`: JavaScript 파일
+                * `theme.js`: 기본 동작 관련 JavaScript
+                * `bootstrap.bundle.min.js`: 부트스트랩 JavaScript
+                * `jquery-3.5.1.min.js`: jQuery 라이브러리
+                * `google-maps.js`: 구글 맵 API 관련 JavaScript
+            * `vendor/`: 외부 라이브러리
+                * `animate/`: 애니메이션 효과 관련 CSS
+                * `wow/`: 스크롤 애니메이션 관련 JavaScript
+            * `font/`: 폰트 파일
+
+## 주요 파일 설명
+
+* **`models.py`:** `PredictionResult` 모델을 정의하여 예측 결과, 입력 데이터, 확률,  시각화 파일 경로 등을 저장합니다.
+* **`forms.py`:** `PredictionForm` 을 정의하여 파일 업로드 및 유효성 검증을 처리하고, `RegisterForm` 을 정의하여 회원 가입을 처리합니다.
+* **`views.py`:**
+    * `predict_view` 함수는 파일 업로드 처리, 데이터 전처리, 예측 실행, 결과 시각화,  Gemini API 를 활용한 예측 해석,  결과 저장 등의 주요 로직을 담당합니다.
+    * `history_view`, `delete_result`, `login_view`, `logout_view`, `register_view`, `result_view`, `download_pdf` 함수는 각각 예측 기록 조회, 삭제, 로그인, 로그아웃, 회원 가입,  결과 상세 조회, PDF 다운로드 기능을 처리합니다.
+* **`utils.py`:**
+    * `predict_cancer` 함수는 로드된 모델을 사용하여 실제 예측을 수행하고 앙상블 결과를 반환합니다.
+    * `save_plot` 함수는 입력 데이터의 분포를 시각화하여 이미지 파일로 저장하고, 파일 경로를 반환합니다.
+    * `render_to_pdf` 함수는 예측 결과를 HTML 템플릿으로 렌더링하고 PDF 파일로 변환하여 다운로드합니다.
+    * 모델 로딩 및 임계값 계산 관련 코드도 포함하고 있습니다.
+* **템플릿 파일:** 각 뷰에 해당하는 HTML 템플릿을 제공하여 사용자 인터페이스를 구성합니다.
+* **정적 파일:** CSS, JavaScript, 이미지 파일 등을 포함하여 웹 페이지의 스타일과 동작을 정의합니다.
+
+## 추가 설명
+
+* **Gemini API 활용:** 예측 결과에 대한 전문적인 해석을 제공하여 사용자의 이해도를 높이는 데 기여합니다.
+* **시각화 기능 강화:** 다양한 형태의 시각화 자료를 제공하여 예측 결과를 다각도로 분석할 수 있도록 지원합니다.
+* **사용자 편의성 개선:** 직관적인 사용자 인터페이스와 다양한 기능을 통해 사용자가 쉽고 편리하게 췌장암 예측 서비스를 이용할 수 있도록 설계되었습니다.
+
+
+
+<video width="640" height="360" controls>
+  <source src="YOUR_VIDEO_URL.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
