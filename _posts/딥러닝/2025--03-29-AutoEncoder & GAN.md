@@ -1,5 +1,5 @@
 ---
-title: 딥러닝을 이용한 비지도 학습: 오토인코더와 GAN
+title: 딥러닝을 이용한 비지도 학습_오토인코더와 GAN
 date: 2025-03-31 05:11:00 +09:00
 categories: [딥러닝]
 tags: [딥러닝, AutoEncoder, GAN]
