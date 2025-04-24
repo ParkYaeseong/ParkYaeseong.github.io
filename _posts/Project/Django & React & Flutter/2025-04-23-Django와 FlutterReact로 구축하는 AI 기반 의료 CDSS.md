@@ -113,7 +113,7 @@ tags: [의료 데이터, 췌장암, 암 진단 모델, CT, multi-omics]
 <video controls width="100%">
   <source src="/assets/videos/녹음 2025-04-23 153726.mp4" type="video/mp4">
   죄송합니다. 이 브라우저는 내장 비디오를 지원하지 않습니다.
-  비디오를 <a href="/assets/cdss/녹음 2025-04-23 153726">다운로드</a>하여 시청하세요.
+  비디오를 <a href="/assets/cdss/녹음 2025-04-23 153726.mp4">다운로드</a>하여 시청하세요.
 </video>
 > 3D 확인
 
