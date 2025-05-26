@@ -1,3 +1,10 @@
+---
+title: nnU-Net 사전 훈련 모델(MAMA-MIA)을 이용한 유방암 종양 분할 과정정 및 트러블슈팅
+date: 2025-05-26 01:28:00 +09:00
+categories: [Project, 암 예후 예측]
+tags: [의료 데이터, CDSS]
+---
+
 # nnU-Net 사전 훈련 모델(MAMA-MIA)을 이용한 유방암 종양 분할 과정정 및 트러블슈팅
 
 ## 목표
