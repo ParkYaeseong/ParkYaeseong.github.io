@@ -1,5 +1,5 @@
 ---
-title: 의료 영상 분할: nnU-Net과 OvSeg를 활용한 유방암 및 난소암 분할
+title: 의료 영상 분할_nnU-Net과 OvSeg를 활용한 유방암 및 난소암 분할
 date: 2025-05-27 01:28:00 +09:00
 categories: [Project, 암 예후 예측]
 tags: [의료 데이터, CDSS]

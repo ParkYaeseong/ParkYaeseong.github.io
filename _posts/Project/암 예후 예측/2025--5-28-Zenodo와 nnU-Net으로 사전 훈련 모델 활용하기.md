@@ -1,5 +1,5 @@
 ---
-title: 의료 AI 분할 정복기: Zenodo와 nnU-Net으로 사전 훈련 모델 활용하기
+title: 의료 AI 분할 정복기_Zenodo와 nnU-Net으로 사전 훈련 모델 활용하기
 date: 2025-05-28 01:28:00 +09:00
 categories: [Project, 암 예후 예측]
 tags: [의료 데이터, CDSS]
