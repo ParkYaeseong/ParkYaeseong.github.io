@@ -98,3 +98,4 @@ nnUNetv2_predict -i C:\Users\사용자ID\Desktop\modeling\nifti_input_safe_for_n
                  -nps 1 ^
                  --disable_tta ^
                  --save_probabilities
+```
