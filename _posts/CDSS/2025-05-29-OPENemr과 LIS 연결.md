@@ -1,8 +1,8 @@
 ---
 title: PACS 서버 구축 가이드
-date: 2025-04-29 10:27:00 +09:00
+date: 2025-05-29 1:27:00 +09:00
 categories: [CDSS]
-tags: [CDSS, Orthanc, PACS server]
+tags: [CDSS, openEMR, PACS, LIS]
 ---
 
 # 차세대 지능형 의료지원 시스템(CDSS) 구축 여정: OpenEMR, Django, 그리고 오픈소스 연동의 모든 것 (v2)
