@@ -1,11 +1,9 @@
 ---
-title: MEORING CDSS
+title: MEORING CDSS (Clinical Decision Support System)
 date: 2025-06-30 1:27:00 +09:00
 categories: [CDSS]
 tags: [CDSS]
 ---
-
-# MEORING CDSS (Clinical Decision Support System)
 
 **GitHub Repository**: [https://github.com/ParkYaeseong/CDSS.git](https://github.com/ParkYaeseong/CDSS.git)
 
