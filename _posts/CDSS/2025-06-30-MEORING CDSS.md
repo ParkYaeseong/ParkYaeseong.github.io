@@ -9,7 +9,6 @@ tags: [CDSS]
 
 **GitHub Repository**: [https://github.com/ParkYaeseong/CDSS.git](https://github.com/ParkYaeseong/CDSS.git)
 
-\<br\>
 
 ## 프로젝트 소개 (About The Project)
 
@@ -27,24 +26,21 @@ tags: [CDSS]
 >   - **N**avigation: 의료진의 복잡한 의사결정을 위한 명확한 길잡이 역할
 >   - **G**uidance: 정확한 진단과 치료를 위한 지능형 지원
 
-\<br\>
 
 ## 주요 기능 (Core Features)
 
-  - **🩺 다중 모달 데이터 통합 대시보드**: 오믹스(유전체, 단백질 등 5종), CT 영상(3D), 임상 데이터를 통합하여 환자 상태를 직관적으로 파악할 수 있는 동적 대시보드를 제공합니다.
-  - ** AI 기반 정밀 진단 및 예측**:
+  - **다중 모달 데이터 통합 대시보드**: 오믹스(유전체, 단백질 등 5종), CT 영상(3D), 임상 데이터를 통합하여 환자 상태를 직관적으로 파악할 수 있는 동적 대시보드를 제공합니다.
+  - **AI 기반 정밀 진단 및 예측**:
       - 주요 암(간암, 신장암, 위암 등)에 대한 위험도 분류, 생존율 예측, 치료 효과 예측
       - 5대 암종(유방암, 간암, 위암 등) 분류
       - 설명 가능한 AI (XAI)를 통해 SHAP, Feature Importance 등 예측의 근거를 시각적으로 제시합니다.
-  - ** CT 영상 자동 분할 및 3D 시각화**: 3D U-Net 기반 AI 모델이 CT 영상 내 종양 및 주요 장기를 자동으로 분할하고, 3D 모델로 시각화하여 부피 측정 등 정밀 분석을 지원합니다.
-  - ** 규칙 기반 약물 상호작용(DDI) 검사**: 공공 데이터 API(DUR)와 연동하여 처방 약물 간의 상호작용, 병용 금기 정보를 실시간으로 확인하여 처방 안전성을 높입니다.
-  - ** RAG 기반 의료 챗봇**: Google Gemini API와 VectorDB에 저장된 최신 의학 정보를 활용하여, 근거 기반의 질문-답변을 제공하는 AI 챗봇 기능을 제공합니다.
-  - ** 스마트 의료 워크플로우**:
+  - **CT 영상 자동 분할 및 3D 시각화**: 3D U-Net 기반 AI 모델이 CT 영상 내 종양 및 주요 장기를 자동으로 분할하고, 3D 모델로 시각화하여 부피 측정 등 정밀 분석을 지원합니다.
+  - **규칙 기반 약물 상호작용(DDI) 검사**: 공공 데이터 API(DUR)와 연동하여 처방 약물 간의 상호작용, 병용 금기 정보를 실시간으로 확인하여 처방 안전성을 높입니다.
+  - **RAG 기반 의료 챗봇**: Google Gemini API와 VectorDB에 저장된 최신 의학 정보를 활용하여, 근거 기반의 질문-답변을 제공하는 AI 챗봇 기능을 제공합니다.
+  - **스마트 의료 워크플로우**:
       - 환자 접수 및 예약 관리, AI 간호일지 자동 생성
       - 의료진-환자 간 보안 메시징 및 환자용 모바일 앱(Flutter) 연동
-  - ** 외부 시스템 연동**: OpenEMR(EHR), Orthanc(PACS), LIS 등 기존 병원 정보 시스템과의 유기적인 데이터 연동을 지원합니다.
-
-\<br\>
+  - **외부 시스템 연동**: OpenEMR(EHR), Orthanc(PACS), LIS 등 기존 병원 정보 시스템과의 유기적인 데이터 연동을 지원합니다.
 
 ## 시스템 아키텍처 (System Architecture)
 
@@ -101,7 +97,7 @@ graph TD
 4.  **Database (MySQL & VectorDB)**: 환자 정보, 진료 기록, 분석 결과 등 정형 데이터는 MySQL에, RAG 챗봇을 위한 비정형 의료 텍스트 데이터는 VectorDB에 저장합니다.
 5.  **External Integrations**: OpenEMR, Orthanc(PACS), LIS, 공공 API 등 다양한 외부 시스템과 연동하여 데이터의 확장성과 서비스의 유용성을 극대화합니다.
 
-\<br\>
+
 
 ## 기술 스택 (Tech Stack)
 
@@ -116,73 +112,16 @@ graph TD
 | **Infra & DevOps** | `Docker`, `Nginx`, `Ubuntu`                                                                       |
 | **API Docs** | `drf-spectacular (Swagger/ReDoc)`                                                                 |
 
-\<br\>
 
-## 설치 및 실행 방법 (Getting Started)
+## 페이지
+**(1. 임상데이터 분석 장면)**
+![image](assets/cdss/clinic.png)
 
-### 사전 준비 (Prerequisites)
+**(2. Omics 분석 장면)**
+![image](assets/cdss/omics.png)
 
-  - Python 3.9+
-  - Node.js 18+ & `npm` or `yarn`
-  - Flutter SDK (모바일 앱)
-  - Docker (외부 서비스 구축용)
-  - MySQL Server
+**(3. CT 분석 장면)**
+![image](assets/cdss/ct.png)
 
-### 1\. 백엔드 (Django) 설정
-
-```bash
-# 1. 저장소 클론
-git clone https://github.com/ParkYaeseong/CDSS.git
-cd CDSS/cdss_django
-
-# 2. 가상 환경 생성 및 활성화
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-# venv\Scripts\activate  # Windows
-
-# 3. 필요한 패키지 설치
-pip install -r requirements.txt
-
-# 4. .env 파일 생성 및 환경 변수 설정
-# SECRET_KEY, 데이터베이스 정보, 외부 API 키 등을 설정합니다.
-# 예: DJANGO_API_BASE_URL, GEMINI_API_KEY 등
-
-# 5. 데이터베이스 마이그레이션
-python manage.py makemigrations
-python manage.py migrate
-
-# 6. 관리자 계정 생성
-python manage.py createsuperuser
-
-# 7. Celery 워커 실행 (별도 터미널에서)
-# Redis 서버가 실행 중이어야 합니다.
-celery -A cdss_config worker -l info
-
-# 8. Django 개발 서버 실행
-python manage.py runserver 0.0.0.0:8000
-```
-
-### 2\. 프론트엔드 (React) 설정
-
-```bash
-# 1. 프론트엔드 디렉토리로 이동
-cd ../final_react
-
-# 2. 의존성 패키지 설치
-npm install
-# 또는
-# yarn install
-
-# 3. .env 파일 생성 및 환경 변수 설정
-# 백엔드 API 서버 주소를 설정합니다.
-echo "REACT_APP_API_BASE_URL=http://localhost:8000" > .env
-
-# 4. React 개발 서버 실행
-npm start
-# 또는
-# yarn start
-```
-
-### 3\. 외부 시스템 연동 (선택 사항)
-
-OpenEMR, Orthanc PACS 등은 Docker를 활용하여 구축할 수 있습니다. 각 시스템을 구축한 후, Django `settings.py` 와 관련 클라이언트 모듈(`core_api/openemr_client.py` 등)의 연결 정보를 업데이트해야 합니다.
+**(4. CDSS와 flutter 연동)**
+![image](assets/cdss/flutter.png)
